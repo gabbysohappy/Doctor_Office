@@ -1,10 +1,10 @@
 <h1><%="Edit Dr. #{@doctor.first_name} #{@doctor.last_name}'s Information"%></h1>
 
-<%= form_for @doctor do |f|%>
-<%=f.label :First_Name%>
+<%=form_for @doctor do |f|%>
+<%=f.label :first_name%>
 <%=f.text_field :first_name%>
 
-<%=f.label :Last_Name%>
+<%=f.label :last_name%>
 <%=f.text_field :last_name%>
 
 <%=f.submit 'Submit'%>
