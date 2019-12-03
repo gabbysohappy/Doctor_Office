@@ -1,4 +1,4 @@
-<h1>Edit #{user.first_name} #{user.last_name}'s Information</h1>
+<h1><%="Edit #{@user.first_name} #{@user.last_name}'s Information"%></h1>
 
 <%= form_for @user do |f|%>
 <%=f.label :First_Name%>

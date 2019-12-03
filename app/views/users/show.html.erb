@@ -1,3 +1,7 @@
-<h1>#{user.first_name} #{user.last_name}'s Information</h1>
+<h1><%="#{@user.first_name} #{@user.last_name}'s Appointments"%></h1>
+<ul>
+<li><%= link_to "Edit Patient's Personal Information", edit_user_path %></li>
+<li><%= link_to "Delete Patient", @user, method: :delete %></li>
+</ul>
 
-
+<!-- Appointment stuff here -->
