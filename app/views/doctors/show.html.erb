@@ -1,2 +1,7 @@
-<h1>Doctors#show</h1>
-<p>Find me in app/views/doctors/show.html.erb</p>
+<h1><%="Dr. #{@doctor.first_name} #{@doctor.last_name}'s Appointments"%></h1>
+<ul>
+<li><%= link_to "Edit Doctor's Credentials", edit_doctor_path %></li>
+<li><%= link_to "Remove Doctor From Registry", @doctor, method: :delete %></li>
+</ul>
+
+<!-- Appointment and patient information here -->
