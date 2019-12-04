@@ -3,9 +3,13 @@
 <br/>
 <h3>Appointments</h3>
 <ul>Scheduled Appointments:
-<% @user.appointments.each do |appointment| %>
-<li><%= link_to appointment.time, appointment %></li>
-<%end%>
+<%# @user.appointments.each do |appointment| %>
+<li><%#= link_to appointment.time, appointment %></li>
+<%#end%>
 </ul>
 <br/>
+<%= link_to "Create Appointment", new_user_appointment_path(@user) %>
+<br />
+<%= link_to "View Appointments", user_appointments_path(@user) %>
+<br />
 <%= link_to "Delete Patient", @user, method: :delete %>
