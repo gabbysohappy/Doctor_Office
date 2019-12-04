@@ -1,19 +1,20 @@
 class AppointmentsController < ApplicationController
-  before_action :set_doctor
+  before_action :set_user
   before_action :set_appointment, only: [ :show, :edit, :update, :destroy ]
 
   def index 
-    @appointments = @doctor.appointments.all
+    @appointments = @user.appointments.all
   end
 
   def new
-    @appointment = @doctor.appointments.new 
+    @doctors = Doctor.all
+    @appointment = @user.appointments.new 
   end
 
   def create
-    @appointment = @doctor.appointments.new(appointment_params)
+    @appointment = @user.appointments.new(appointment_params)
     if @appointment.save
-      redirect_to doctor_appointments_path(@doctor)
+      redirect_to user_appointments_path(@user)
     else
       render :new
     end
@@ -27,7 +28,7 @@ class AppointmentsController < ApplicationController
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to doctor_appointments_path(@doctor)
+      redirect_to user_appointments_path(@user)
     else
       render :edit
     end
@@ -35,19 +36,19 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to doctor_appointments_path(@doctor)
+    redirect_to user_appointments_path(@user)
   end
 
   private
     def appointment_params
-      params.require(:appointment).permit(:doctor_id, :user_id, :time)
+      params.require(:appointment).permit(:time, :doctor_id, :appointment_type)
     end
 
-    def set_doctor
-      @doctor = doctor.find(params[:doctor_id])
+    def set_user
+      @user = User.find(params[:user_id])
     end
 
     def set_appointment
-      @appointment = @doctor.appointments.find(params[:id])
+      @appointment = @user.appointments.find(params[:id])
     end
 end
