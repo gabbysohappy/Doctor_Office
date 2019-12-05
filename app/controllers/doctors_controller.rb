@@ -13,7 +13,7 @@ class DoctorsController < ApplicationController
   end
 
   def create
-    @doctor = Doctor.new(course_params)
+    @doctor = Doctor.new(doctor_params)
 
     if @doctor.save
       redirect_to @doctor
