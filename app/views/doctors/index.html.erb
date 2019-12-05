@@ -1,6 +1,10 @@
-<h1>All Doctors</h1>
-<ul>
+<h1>Physicians</h1>
+<%= link_to "Add a new physician to the office", new_doctor_path %>
+<br />
+<ul> All Practicing Physicians:
 <% @doctors.each do |doctor| %>
 <li><%= link_to "Dr. #{doctor.first_name} #{doctor.last_name}", doctor %></li>
 <%end%>
 </ul>
+
+
