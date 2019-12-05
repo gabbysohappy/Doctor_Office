@@ -9,16 +9,18 @@
     <th>Doctor Name</th>
     <th>Appointment Date and Time</th>
     <th>Appointment Type</th>
- </tr>
+    <th>Delete / Edit Appointment</th>
+  </tr>
     <% @user.appointments.each do |a| %>
   <tr>
     <td><%= link_to a.doctor.doctor_full_name, doctor_path(a.doctor.id) %></td>
     <td><%= a.time %></td>
     <td><%= a.appointment_type %></td>
+    <td><%= link_to "delete", [@user,a], method: :delete %> / <%= link_to "edit",  edit_user_appointment_path(@user,a) %></td>
   </tr>
     <%end%>
 </table>
 <br/>
 <%= link_to "Create Appointment", new_user_appointment_path(@user) %>
 <br />
-<%= link_to "View Appointments", user_appointments_path(@user) %>
+<%#= link_to "View Appointments", user_appointments_path(@user) %>

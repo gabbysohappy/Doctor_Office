@@ -14,7 +14,7 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = @user.appointments.new(appointment_params)
     if @appointment.save
-      redirect_to user_appointments_path(@user)
+      redirect_to user_path(@user)
     else
       render :new
     end
@@ -24,11 +24,12 @@ class AppointmentsController < ApplicationController
   end
 
   def edit
+    @doctors = Doctor.all
   end
 
   def update
     if @appointment.update(appointment_params)
-      redirect_to user_appointments_path(@user)
+      redirect_to user_path(@user)
     else
       render :edit
     end
@@ -36,7 +37,7 @@ class AppointmentsController < ApplicationController
 
   def destroy
     @appointment.destroy
-    redirect_to user_appointments_path(@user)
+    redirect_to user_path(@user)
   end
 
   private
