@@ -1,10 +1,29 @@
-<h1>Physicians</h1>
-<%= link_to "Add a new physician to the office", new_doctor_path %>
-<br />
-<ul> All Practicing Physicians:
-<% @doctors.each do |doctor| %>
-<li><%= link_to "Dr. #{doctor.first_name} #{doctor.last_name}", doctor %></li>
-<%end%>
-</ul>
+<div class="ui grid">
+
+  <div class="five wide column">
+    <br />
+    <h1>Physicians</h1>
+
+    <button class="ui button">
+    <%= link_to "Add a new physician to the office", new_doctor_path %>
+    </button>
+
+    <br />
+    <table class="ui celled table">
+    <tr> 
+      <th>All Practicing Physicians:</th>
+    </tr>
+      <% @doctors.each do |doctor| %>
+    <tr>
+      <td><%= link_to "Dr. #{doctor.first_name} #{doctor.last_name}", doctor %></td>
+    </tr>
+    <%end%>
+    </table>
+  </div>
+  
+  <div class="eleven wide column">
+    <img src="https://images.unsplash.com/photo-1560249952-8e90192fc839?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80">
+  </div>
+</div>
 
 

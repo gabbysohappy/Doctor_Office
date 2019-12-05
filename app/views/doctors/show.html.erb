@@ -7,13 +7,15 @@
 <table class="ui celled table">
   <tr>
     <th>Patients Name</th>
-    <th>Appointment Date and Time</th>
+    <th>Appointment Date</th>
+    <th>Appointment Time</th>
     <th>Appointment Type</th>
  </tr>
     <% @doctor.appointments.each do |a| %>
   <tr>
     <td><%= link_to a.user.user_full_name, user_path(a.user.id) %></td>
-    <td><%= a.time %></td>
+    <td><%= a.date.strftime("%m/%d/%Y") %></td>
+    <td><%= a.time.strftime("%l:%M %p")%></td>
     <td><%= a.appointment_type %></td>
   </tr>
     <%end%>

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
     validates :first_name, :last_name, presence: true 
 
-    has_many :appointments
+    has_many :appointments, dependent: :destroy
     has_many :doctors, through: :appointments
 
     def user_full_name

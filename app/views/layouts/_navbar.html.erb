@@ -1,10 +1,9 @@
-<nav>
-  <ul>
-    <li>
-      <%= link_to 'View Doctors', doctors_path %>
-    </li>
-    <li>
-      <%= link_to 'View Patients', root_path %>
-    </li>
-  </ul>
-</nav>
+<div>
+    <div class="banner">
+        <div class='title'>The Doctor's Office</div>
+    </div>
+    <div class="ui secondary pointing menu">
+        <%= link_to 'View Doctors', doctors_path, class: 'item' %>
+        <%= link_to 'View Patients', root_path, class: "item" %>
+    </div>
+</div>
