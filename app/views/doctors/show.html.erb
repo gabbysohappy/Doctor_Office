@@ -1,7 +1,21 @@
-<h1><%="Dr. #{@doctor.first_name} #{@doctor.last_name}'s Appointments"%></h1>
+<h1><%="Dr. #{@doctor.first_name} #{@doctor.last_name}"%></h1>
 <ul>
 <li><%= link_to "Edit Doctor's Credentials", edit_doctor_path %></li>
 <li><%= link_to "Remove Doctor From Registry", @doctor, method: :delete %></li>
 </ul>
-
+<h3>Schedule:</h3>
+<table class="ui celled table">
+  <tr>
+    <th>Patients Name</th>
+    <th>Appointment Date and Time</th>
+    <th>Appointment Type</th>
+ </tr>
+    <% @doctor.appointments.each do |a| %>
+  <tr>
+    <td><%= link_to a.user.user_full_name, user_path(a.user.id) %></td>
+    <td><%= a.time %></td>
+    <td><%= a.appointment_type %></td>
+  </tr>
+    <%end%>
+</table>
 <!-- Appointment and patient information here -->
