@@ -1,7 +1,27 @@
-<h1>Patients</h1>
-<%= link_to "Create a new patient", new_user_path %>
-<ul> All Patients:
-<% @users.each do |user| %>
-<li><%= link_to "#{user.first_name} #{user.last_name}", user %></li>
-<%end%>
-</ul>
+<div class="ui grid">
+
+  <div class="five wide column">
+    <br />
+    <h1>Patients</h1>
+
+    <button class="ui button">
+    <%= link_to "Create a new patient", new_user_path %>
+    </button>
+
+    <br />
+    <table class="ui celled table">
+    <tr> 
+      <th>All Patients:</th>
+    </tr>
+      <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to "#{user.first_name} #{user.last_name}", user %></td>
+    </tr>
+    <%end%>
+    </table>
+  </div>
+
+  <div class="eleven wide column">
+    <img src="https://images.pexels.com/photos/2182972/pexels-photo-2182972.jpeg?cs=srgb&dl=clinic-doctor-explaining-2182972.jpg&fm=jpg">
+  </div>
+</div>

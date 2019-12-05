@@ -1,12 +1,17 @@
 <h1><%="Edit #{@user.first_name} #{@user.last_name}'s Information"%></h1>
 
-<%=form_for @user do |f|%>
-<%=f.label :first_name%>
+<%=form_for @user, :html => { class: "ui form"} do |f|%>
+
+<div class="field">
+<%=f.label :First_Name%>
 <%=f.text_field :first_name%>
+</div>
 
-<%=f.label :last_name%>
+<div class="field">
+<%=f.label :Last_Name%>
 <%=f.text_field :last_name%>
+</div>
 
-<%=f.submit 'Submit'%>
+<%= f.button :Submit, type: :submit, class: "ui primary button" %>
 
 <% end %>
